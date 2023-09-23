@@ -45,7 +45,7 @@ const App = () => {
         password: '', // Clear the password input
       });
       setAuthenticated(false);
-      setErrorMessage('Credentials do not match.'); // Set the error message
+      setErrorMessage('Credentials do no match.'); // Set the error message
     }
   };
   const handleforgot = () => {
