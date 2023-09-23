@@ -46,7 +46,10 @@ const Appa = () => {
         password: '', // Clear the password input
       });
       setAuthenticated(false);
-      setErrorMessage('Credentials do not match.'); // Set the error message
+      if(  formData.loginId===''||  formData.password==='')
+      setErrorMessage('Enter All Required Fields');
+    else
+      setErrorMessage('Credentials do not match.'); 
     }
   };
 
