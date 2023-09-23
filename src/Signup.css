@@ -1,0 +1,118 @@
+/* Signup.css */
+
+.Signup {
+  /* Set the background image for the entire component */
+  filter: none;
+  background-image: url('https://img.freepik.com/free-vector/indian-tricolor-theme-watercolor-texture-patriotic-background-vector_1055-11952.jpg');
+  background-size: cover; /* Adjust this as needed */
+  background-position: center center; /* Center the background image */
+
+  /* Center the form container vertically and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the component covers the full viewport height */
+}
+#selector{
+  height: 40px;
+  width: 25%;
+ border: 1px solid grey;
+ border-radius: 7px;
+ color: grey;
+ text-align: center;
+}
+.selector{
+  position: relative;
+  top: -13px;
+  left: 40%;
+
+}
+.signup-container {
+position: relative;
+right: 100px;
+top: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px; /* Set the width of the container */
+  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow to the container */
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+.signup_logo{
+  display: flex;
+
+}
+.upper{
+  display: flex;
+  margin-left: 4.5%;
+}
+.signup_log{
+  display: flex;
+position: relative;
+bottom: 250px;
+right: 170px;
+}
+
+
+#username_signup,#password_signup,#email {
+  align-items: center;
+  width: 87%;
+  padding: 10px;
+  padding-right: 10%;
+  padding-left: 10%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  
+}
+
+#pac{
+  position: relative;
+
+  left:25% ;
+}
+.cen{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+button[type='submit'] {
+position: relative;
+
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Add additional styles as needed */
+.go-back-button_signup
+{
+  margin-left: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.error-message{
+  text-align: center;
+}

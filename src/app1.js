@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import Signup from './Signup'; // Import the Signup component
 import ForgotPassword from './fp';
-const App = () => {
+
+const Appa = () => {
   const validCredentials = {
     loginId: 'vimarshmishra',
     password: 'omar123',
@@ -17,10 +18,10 @@ const App = () => {
   // State to manage authentication status and error message
   const [authenticated, setAuthenticated] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [showforgot, setShowforgot] = useState(false);
+
   // State to control the rendering of the Signup component
   const [showSignup, setShowSignup] = useState(false);
-
+  const [showforgot, setShowforgot] = useState(false);
   // Function to handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -48,56 +49,49 @@ const App = () => {
       setErrorMessage('Credentials do not match.'); // Set the error message
     }
   };
+
+  // Function to handle signup button click and render Signup component
+  const handleSignupClick = () => {
+    setShowSignup(true); // Show the Signup component
+  };
   const handleforgot = () => {
     setShowforgot(true); // Show the Signup component
   };
   if (showforgot) {
     return (<div><ForgotPassword /></div>);
   }
-  // Function to handle signup button click and render Signup component
-  const handleSignupClick = () => {
-    setShowSignup(true); // Show the Signup component
-  };
-
   // Conditional rendering based on showSignup state
   if (showSignup) {
     return <Signup />;
   }
 
   return (
-    //1
-     <div className="app">
+    <div className="app">
       {/* Background image */}
-      //2
       <div>
         <div className="background-image"> </div>
       </div>
 
       <div className='cont'>
-        
-      <div className='headerA'>
+        <div className='headerA'>
           <img
             className="logoA"
             src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/All_India_Council_for_Technical_Education_logo.png/220px-All_India_Council_for_Technical_Education_logo.png"
             alt="AICTE Logo"
           />
-          
           <div className='portalA'>
             <label className='AICTEA'><b> AICTE</b></label>
             <br></br>
             <label className='x'>a unified portal for all your needs</label>
-        
           </div>
-          
         </div>
-        
         <div className="login-container">
           <div className="login-form">
             {authenticated ? (
               <p className="welcome-message">Welcome, {validCredentials.loginId}!</p>
             ) : (
               <div>
-                <h1>Educator <br></br> Login</h1>
+                <h1>Developer <br></br> Login</h1>
                 <div className="input-container">
                   <label htmlFor="loginId">Login ID:</label>
                   <input
@@ -109,7 +103,7 @@ const App = () => {
                   />
                 </div>
                 <div className="input-container">
-                <label htmlFor="password">Password: <button className="forgot" onClick={handleforgot}>
+                  <label htmlFor="password">Password: <button className="forgot" onClick={handleforgot}>
                   forgot password
                 </button></label>
                   <input
@@ -149,4 +143,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Appa;
