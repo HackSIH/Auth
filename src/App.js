@@ -1,155 +1,88 @@
 import React, { useState } from 'react';
-import './App.css';
-import Signup from './Signup'; // Import the Signup component
-import ForgotPassword from './fp';
-const App = () => {
-  const validCredentials = {
-    loginId: 'vimarshmishra',
-    password: 'omar123',
-  };
+import './App.css'; // You can create and import your own CSS for styling
+import Check from './check';
 
-  // State to store form input values
-  const [formData, setFormData] = useState({
-    loginId: '',
-    password: '',
-  });
-
-  // State to manage authentication status and error message
-  const [authenticated, setAuthenticated] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [showforgot, setShowforgot] = useState(false);
-  // State to control the rendering of the Signup component
-  const [showSignup, setShowSignup] = useState(false);
-
-  // Function to handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  // Function to handle form submission and authentication
-  const handleLogin = () => {
-    // Check if the entered credentials match the valid credentials
-    if (
-      formData.loginId === validCredentials.loginId &&
-      formData.password === validCredentials.password
-    ) {
-      // Redirect to landing_page.html on successful login
-      window.location.href = 'landing_page.html';
-    } else {
-      setFormData({
-        ...formData,
-        password: '', // Clear the password input
-      });
-      setAuthenticated(false);
-      if(  formData.loginId===''||  formData.password==='')
-      setErrorMessage('Enter All Required Fields');
-    else
-      setErrorMessage('Credentials do not match.');  // Set the error message
+function App() {
+    const img={
+        "url1":"https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+        "url2":"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+        "url3":"https://images.unsplash.com/photo-1597733336794-12d05021d510?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+        "url4":"https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+      }
+    const [showforgot, setShowforgot] = useState(false);
+    const handleforgot = () => {
+        setShowforgot(true); // Show the Signup component
+      };
+    if(showforgot)
+    {
+       return(<div><Check/></div>) 
     }
-  };
-  const handleforgot = () => {
-    setShowforgot(true); // Show the Signup component
-  };
-  if (showforgot) {
-    return (<div><ForgotPassword /></div>);
-  }
-  // Function to handle signup button click and render Signup component
-  const handleSignupClick = () => {
-    setShowSignup(true); // Show the Signup component
-  };
-
-  // Conditional rendering based on showSignup state
-  if (showSignup) {
-    return <Signup />;
-  }
-
   return (
-    //1
-     <div className="app">
-      {/* Background image */}
-      //2
-      <div>
-        <div className="background-image"> </div>
-      </div>
-
-      <div className='cont'>
-      <a href='https://www.aicte-india.org/' className='logo_button' target='_blank'>
-      <div className='headerA'>
-          <img
-            className="logoA"
-            src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/All_India_Council_for_Technical_Education_logo.png/220px-All_India_Council_for_Technical_Education_logo.png"
-            alt="AICTE Logo"
-          />
-          
-          <div className='portalA'>
-            <label className='AICTEA'><b> AICTE</b></label>
-            <br></br>
-            <label className='x'>a unified portal for all your needs</label>
-        
-          </div>
-          
+    <div className="App">
+        <div>
+            <div className='background-imageL'></div>
         </div>
-        </a>
-        <div className="login-container">
-          <div className="login-form">
-            {authenticated ? (
-              <p className="welcome-message">Welcome, {validCredentials.loginId}!</p>
-            ) : (
-              <div>
-                <h1>Educator <br></br> Login</h1>
-                <div className="input-container">
-                  <label htmlFor="loginId">Login ID:</label>
-                  <input
-                    type="text"
-                    id="loginId"
-                    name="loginId"
-                    value={formData.loginId}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className="input-container">
-                <label htmlFor="password">Password: <button className="forgot" onClick={handleforgot}>
-                  forgot password
-                </button></label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    className={errorMessage ? 'password-error' : ''}
-                  />
-                  {errorMessage && (
-                    <p className="error-message" >{errorMessage}</p>
-                  )}
-                </div>
-                <button className="signup-button" onClick={handleSignupClick}>
-                  NEW USER? SIGNUP
-                </button>
-                <br></br>
-                <br></br>
-               
-                <button className="login-button" onClick={handleLogin}>
-                  Login
-                </button>
-                <button className="go-back-button" onClick={() => window.location.href = 'index.html'}>
-              Go Back
-            </button>
-                
-              </div>
-            )}
+      <header>
+        <h1>My Website</h1>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><button onClick={handleforgot}>hello</button></li>
+          </ul>
+        </nav>
+      </header>
 
-            {/* "Go Back" button */}
-           
-          </div>
+      <main>
+        <section>
+          <h2>Welcome to My Website</h2>
+          <p>This is the main content of the website.</p>
+        </section>
+      </main>
+
+      <footer className='about'>
+      <h2 className="start1">ABOUT US</h2>
+      <br/>
+      <div className="card-container">
+        <div className="card">
+          <img src={img.url1} alt="Card 1" />
+          <h3>DESIGN</h3>
+          <p>Offer intuitive tools and templates for curriculum design.</p>
+        </div>
+        <div className="card">
+          <img src={img.url2} alt="Card 2" />
+          <h3>RESOURCES</h3>
+          <p>A repository of educational resources, such as textbooks, articles, videos.</p>
+        </div>
+        <div className="card">
+          <img src={img.url3} alt="Card 3" />
+          <h3>ANALYSE</h3>
+          <p>Provide analytics and reporting features to track and analyze the effectiveness of curriculum designs.</p>
+        </div>
+        <div className="card">
+          <img src={img.url4} alt="Card 4" />
+          <h3>COLLABORATE</h3>
+          <p>Allows users to invite others to review and provide feedback on their curriculum designs.</p>
+      
         </div>
       </div>
+      <section className='notify'>
+        <div className='container flexSB'>
+          <div className='left row'>
+            <h1>Stay Updated!</h1>
+            <span className="sub">Be the first one to know if we move things around a bit.</span>
+          </div>
+          <div className='right row'>
+            
+            <input type='email'className='inp' placeholder='Enter email address' />
+            <i className='fa fa-paper-plane z'></i>
+          </div>
+        </div>
+      </section>
+      </footer>
     </div>
   );
-};
+}
 
 export default App;
