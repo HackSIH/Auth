@@ -77,7 +77,7 @@ const App = () => {
       </div>
 
       <div className='cont'>
-        
+      <a href='https://www.aicte-india.org/' className='logo_button' target='_blank'>
       <div className='headerA'>
           <img
             className="logoA"
@@ -93,7 +93,7 @@ const App = () => {
           </div>
           
         </div>
-        
+        </a>
         <div className="login-container">
           <div className="login-form">
             {authenticated ? (

@@ -95,7 +95,9 @@
     transition: background-color 0.2s ease-in-out;
     
   }
-  
+  .logo_button{
+    text-decoration: none;
+  }
   .orange{
 color: rgb(255, 153, 0);
 background-position: 5% 5%; 
@@ -110,7 +112,7 @@ color: green;
 background-position: 100% 100%; 
   }
   .orange:hover{
-    background-color: rgb(201, 131, 2);
+    color: rgb(255, 166, 0);
     
       }
       .white:hover{
@@ -118,7 +120,6 @@ background-position: 100% 100%;
     color: blue;
       }
       .green:hover{
-    background-color: rgb(1, 108, 1);
+    color: rgb(4, 153, 4);
       }
  
-  

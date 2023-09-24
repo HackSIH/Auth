@@ -76,6 +76,7 @@ const Appa = () => {
       </div>
 
       <div className='cont'>
+      <a href='https://www.aicte-india.org/' className='logo_button' target='_blank'>
         <div className='headerA'>
           <img
             className="logoA"
@@ -88,6 +89,7 @@ const Appa = () => {
             <label className='x'>a unified portal for all your needs</label>
           </div>
         </div>
+        </a>
         <div className="login-container">
           <div className="login-form">
             {authenticated ? (
